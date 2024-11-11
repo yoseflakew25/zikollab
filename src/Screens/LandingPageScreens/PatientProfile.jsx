@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { motion, AnimatePresence } from "framer-motion";
 
 const contentVariants = {
-  hidden: { 
+  hidden: {
     opacity: 0,
     height: 0,
     transition: {
-      duration: 0.2
-    }
+      duration: 0.2,
+    },
   },
-  visible: { 
+  visible: {
     opacity: 1,
     height: "auto",
     transition: {
-      duration: 0.2
-    }
-  }
+      duration: 0.2,
+    },
+  },
 };
 
 const PatientProfile = () => {
@@ -36,10 +36,10 @@ const PatientProfile = () => {
   }, [id]);
 
   const loadPatient = () => {
-    const savedData = localStorage.getItem('patients');
+    const savedData = localStorage.getItem("patients");
     if (savedData) {
       const patients = JSON.parse(savedData);
-      const foundPatient = patients.find(p => p.id === id);
+      const foundPatient = patients.find((p) => p.id === id);
       if (foundPatient) {
         setPatient(foundPatient);
       }
@@ -47,33 +47,33 @@ const PatientProfile = () => {
   };
 
   const handleInputChange = (field, value) => {
-    setPatient(prev => ({
+    setPatient((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const toggleSection = (section) => {
-    setSections(prev => ({
+    setSections((prev) => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section],
     }));
   };
 
   const handleSave = () => {
     try {
-      const savedData = localStorage.getItem('patients');
+      const savedData = localStorage.getItem("patients");
       if (savedData) {
         const patients = JSON.parse(savedData);
-        const updatedPatients = patients.map(p => 
+        const updatedPatients = patients.map((p) =>
           p.id === patient.id ? patient : p
         );
-        localStorage.setItem('patients', JSON.stringify(updatedPatients));
-        toast.success('Patient profile updated successfully!');
+        localStorage.setItem("patients", JSON.stringify(updatedPatients));
+        toast.success("Patient profile updated successfully!");
       }
     } catch (error) {
-      toast.error('Error updating patient profile');
-      console.error('Error:', error);
+      toast.error("Error updating patient profile");
+      console.error("Error:", error);
     }
   };
 
@@ -84,17 +84,19 @@ const PatientProfile = () => {
   return (
     <div className="bg-gray-50 font-sans min-h-screen py-10 mt-8">
       <div className="container mx-auto w-4/5 bg-white rounded-lg shadow-md p-8 my-8">
-      <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Edit Patient Profile</h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold text-gray-900">
+            Edit Patient Profile
+          </h1>
           <div className="space-x-4">
             <button
               onClick={handleSave}
-              className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors"
+              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
             >
               Save Changes
             </button>
             <button
-              onClick={() => navigate('/patients')}
+              onClick={() => navigate("/patients")}
               className="bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors"
             >
               Back to List
@@ -105,13 +107,13 @@ const PatientProfile = () => {
         {/* Admission Section */}
         <div className="mb-6">
           <button
-            onClick={() => toggleSection('admission')}
-            className="w-full text-left bg-green-600 text-white py-3 px-5 rounded-lg hover:bg-green-700 transition-colors flex justify-between items-center"
+            onClick={() => toggleSection("admission")}
+            className="w-full text-left bg-blue-600 text-white py-3 px-5 rounded-lg hover:bg-blue-700 transition-colors flex justify-between items-center"
           >
             <span className="text-lg font-semibold">Admission Details</span>
-            <span>{sections.admission ? '−' : '+'}</span>
+            <span>{sections.admission ? "−" : "+"}</span>
           </button>
-          
+
           <AnimatePresence initial={false}>
             {sections.admission && (
               <motion.div
@@ -129,8 +131,10 @@ const PatientProfile = () => {
                     <input
                       type="text"
                       value={patient.patientName}
-                      onChange={(e) => handleInputChange('patientName', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("patientName", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -141,8 +145,8 @@ const PatientProfile = () => {
                     <input
                       type="number"
                       value={patient.age}
-                      onChange={(e) => handleInputChange('age', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) => handleInputChange("age", e.target.value)}
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -152,8 +156,8 @@ const PatientProfile = () => {
                     </label>
                     <select
                       value={patient.sex}
-                      onChange={(e) => handleInputChange('sex', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) => handleInputChange("sex", e.target.value)}
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     >
                       <option value="">Select Sex</option>
                       <option value="male">Male</option>
@@ -168,8 +172,10 @@ const PatientProfile = () => {
                     <input
                       type="text"
                       value={patient.city}
-                      onChange={(e) => handleInputChange('city', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("city", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -180,8 +186,10 @@ const PatientProfile = () => {
                     <input
                       type="text"
                       value={patient.subCity}
-                      onChange={(e) => handleInputChange('subCity', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("subCity", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -192,8 +200,10 @@ const PatientProfile = () => {
                     <input
                       type="text"
                       value={patient.houseNumber}
-                      onChange={(e) => handleInputChange('houseNumber', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("houseNumber", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                 </div>
@@ -205,13 +215,13 @@ const PatientProfile = () => {
         {/* Anthropology Section */}
         <div className="mb-6">
           <button
-            onClick={() => toggleSection('anthropology')}
-            className="w-full text-left bg-green-600 text-white py-3 px-5 rounded-lg hover:bg-green-700 transition-colors flex justify-between items-center"
+            onClick={() => toggleSection("anthropology")}
+            className="w-full text-left bg-blue-600 text-white py-3 px-5 rounded-lg hover:bg-blue-700 transition-colors flex justify-between items-center"
           >
             <span className="text-lg font-semibold">Anthropology</span>
-            <span>{sections.anthropology ? '−' : '+'}</span>
+            <span>{sections.anthropology ? "−" : "+"}</span>
           </button>
-          
+
           <AnimatePresence initial={false}>
             {sections.anthropology && (
               <motion.div
@@ -229,8 +239,10 @@ const PatientProfile = () => {
                     <input
                       type="number"
                       value={patient.weight}
-                      onChange={(e) => handleInputChange('weight', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("weight", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -241,8 +253,10 @@ const PatientProfile = () => {
                     <input
                       type="number"
                       value={patient.height}
-                      onChange={(e) => handleInputChange('height', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("height", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -253,8 +267,10 @@ const PatientProfile = () => {
                     <input
                       type="number"
                       value={patient.muac}
-                      onChange={(e) => handleInputChange('muac', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("muac", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                 </div>
@@ -266,13 +282,13 @@ const PatientProfile = () => {
         {/* History Section */}
         <div className="mb-6">
           <button
-            onClick={() => toggleSection('history')}
-            className="w-full text-left bg-green-600 text-white py-3 px-5 rounded-lg hover:bg-green-700 transition-colors flex justify-between items-center"
+            onClick={() => toggleSection("history")}
+            className="w-full text-left bg-blue-600 text-white py-3 px-5 rounded-lg hover:bg-blue-700 transition-colors flex justify-between items-center"
           >
             <span className="text-lg font-semibold">History</span>
-            <span>{sections.history ? '−' : '+'}</span>
+            <span>{sections.history ? "−" : "+"}</span>
           </button>
-          
+
           <AnimatePresence initial={false}>
             {sections.history && (
               <motion.div
@@ -289,9 +305,11 @@ const PatientProfile = () => {
                     </label>
                     <textarea
                       value={patient.chiefComplaints}
-                      onChange={(e) => handleInputChange('chiefComplaints', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("chiefComplaints", e.target.value)
+                      }
                       rows="3"
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -301,9 +319,11 @@ const PatientProfile = () => {
                     </label>
                     <textarea
                       value={patient.presentHistory}
-                      onChange={(e) => handleInputChange('presentHistory', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("presentHistory", e.target.value)
+                      }
                       rows="3"
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                 </div>
@@ -315,13 +335,13 @@ const PatientProfile = () => {
         {/* Physical Examination Section */}
         <div className="mb-6">
           <button
-            onClick={() => toggleSection('physicalExamination')}
-            className="w-full text-left bg-green-600 text-white py-3 px-5 rounded-lg hover:bg-green-700 transition-colors flex justify-between items-center"
+            onClick={() => toggleSection("physicalExamination")}
+            className="w-full text-left bg-blue-600 text-white py-3 px-5 rounded-lg hover:bg-blue-700 transition-colors flex justify-between items-center"
           >
             <span className="text-lg font-semibold">Physical Examination</span>
-            <span>{sections.physicalExamination ? '−' : '+'}</span>
+            <span>{sections.physicalExamination ? "−" : "+"}</span>
           </button>
-          
+
           <AnimatePresence initial={false}>
             {sections.physicalExamination && (
               <motion.div
@@ -339,8 +359,10 @@ const PatientProfile = () => {
                     <input
                       type="number"
                       value={patient.temperature}
-                      onChange={(e) => handleInputChange('temperature', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("temperature", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -351,8 +373,10 @@ const PatientProfile = () => {
                     <input
                       type="text"
                       value={patient.bloodPressure}
-                      onChange={(e) => handleInputChange('bloodPressure', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("bloodPressure", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
 
@@ -363,8 +387,10 @@ const PatientProfile = () => {
                     <input
                       type="number"
                       value={patient.pulseRate}
-                      onChange={(e) => handleInputChange('pulseRate', e.target.value)}
-                      className="w-full p-2 border rounded-md focus:ring-green-500 focus:border-green-500"
+                      onChange={(e) =>
+                        handleInputChange("pulseRate", e.target.value)
+                      }
+                      className="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500"
                     />
                   </div>
                 </div>
@@ -377,7 +403,7 @@ const PatientProfile = () => {
         <div className="flex justify-center mt-8">
           <button
             onClick={() => navigate(`/patients/${patient.id}/goal-setting`)}
-            className="bg-green-600 text-white px-8 py-2 rounded-md hover:bg-green-700 transition-colors"
+            className="bg-blue-600 text-white px-8 py-2 rounded-md hover:bg-blue-700 transition-colors"
           >
             Set Goals for Patient
           </button>

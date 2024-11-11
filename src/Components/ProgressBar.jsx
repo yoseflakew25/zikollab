@@ -2,14 +2,16 @@ import * as React from "react";
 
 function NumberCircle({ number }) {
   return (
-    <div className="flex justify-center items-center px-3.5 bg-green-700 rounded-full h-[34px] w-[34px] text-white">
+    <div className="flex justify-center items-center px-3.5 bg-blue-700 rounded-full h-[34px] w-[34px] text-white">
       {number}
     </div>
   );
 }
 
 function Connector() {
-  return <div className="shrink-0 my-auto h-1.5 bg-green-700 rounded-[40px] w-[64px]" />;
+  return (
+    <div className="shrink-0 my-auto h-1.5 bg-blue-700 rounded-[40px] w-[64px]" />
+  );
 }
 
 function ProgressBar() {

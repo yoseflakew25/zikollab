@@ -9,29 +9,25 @@ const OTPScreen = () => {
   const [OTP, setOTP] = useState("");
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen gap-4'>
-      <div className='flex flex-col items-center justify-center gap-2'>
+    <div className="flex flex-col items-center justify-center h-screen gap-4">
+      <div className="flex flex-col items-center justify-center gap-2">
         <Link to={"/"}>
-          <img
-            className='w-40'
-            src={fetena_logo}
-            alt='Fetena.com Logo'
-          />
+          <img className="w-40" src={fetena_logo} alt="Fetena.com Logo" />
         </Link>
-        <h1 className='text-3xl font-bold'>One Time Password</h1>
+        <h1 className="text-3xl font-bold">One Time Password</h1>
       </div>
-      <div className='flex flex-col gap-4 '>
-        <h2 className='text-md font-semibold '>
+      <div className="flex flex-col gap-4 ">
+        <h2 className="text-md font-semibold ">
           Enter your one time password sent to your email.
         </h2>
         <OTPInput
           value={OTP}
           onChange={setOTP}
           autoFocus
-          className='flex items-center justify-center '
-          inputClassName='border-2 border-green-500 rounded-md rounded w-40 h-40 p-2 text-4xl font-bold'
+          className="flex items-center justify-center "
+          inputClassName="border-2 border-blue-500 rounded-md rounded w-40 h-40 p-2 text-4xl font-bold"
           OTPLength={6}
-          otpType='number'
+          otpType="number"
           disabled={false}
           inputStyles={{
             width: "2.5rem",
@@ -47,8 +43,8 @@ const OTPScreen = () => {
         <ResendOTP onResendClick={() => console.log("Resend clicked")} />
       </div>
       <Button
-        className='bg-green-500 text-white hover:bg-white hover:text-green-500 hover:border hover:border-green-500'
-        htmlType='submit'
+        className="bg-blue-500 text-white hover:bg-white hover:text-blue-500 hover:border hover:border-blue-500"
+        htmlType="submit"
         text={"Send"}
       />
     </div>

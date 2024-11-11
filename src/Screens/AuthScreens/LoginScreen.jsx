@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import fetena_logo from "../../assets/fetena_logo_green.svg";
-// import Logo from "../../assets/fetena_logo_green.js";
+import fetena_logo from "../../assets/fetena_logo_blue.svg";
+// import Logo from "../../assets/fetena_logo_blue.js";
 import auth_bg from "../../assets/auth_bg.jpg";
 import { Form, Input } from "antd";
 import { Icon } from "@iconify/react";
@@ -77,7 +77,7 @@ const LoginScreen = () => {
           Don't have an account?{" "}
           <Link
             to="/register"
-            className="text-green-100 hover:underline hover:text-white"
+            className="text-blue-100 hover:underline hover:text-white"
           >
             Sign up
           </Link>
@@ -131,12 +131,12 @@ const LoginScreen = () => {
           <div className="flex flex-col justify-between gap-2">
             <Link
               to="/forgot-password"
-              className="text-green-500 hover:underline"
+              className="text-blue-500 hover:underline"
             >
               Forgot Password?
             </Link>
             <button
-              className="bg-green-500 hover:bg-green-900 text-white font-bold py-2 px-4 rounded"
+              className="bg-blue-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
               onClick={handleSubmit}
             >
               Log in

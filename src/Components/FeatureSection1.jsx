@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import { Link } from 'react-router-dom';
-import Button from './Button';
+import { Link } from "react-router-dom";
+import Button from "./Button";
 const FeatureSection1 = ({ featuresData }) => {
   const { title, description, btnLink, btnLabel, imgSrc } = featuresData;
 
@@ -21,17 +21,13 @@ const FeatureSection1 = ({ featuresData }) => {
             />
           </div>
           <div className="mx-8 md:w-7/12 lg:w-1/2">
-            <h2 className="text-3xl font-bold text-green-700 md:text-4xl">{title}</h2>
+            <h2 className="text-3xl font-bold text-blue-700 md:text-4xl">
+              {title}
+            </h2>
             <p className="my-8 text-gray-600">{description}</p>
-            <Link
-                  to='/sign-in'              
-                  className='flex items-center justify-center'
-            >
-              
-              
-            <Button text={btnLabel} />
+            <Link to="/sign-in" className="flex items-center justify-center">
+              <Button text={btnLabel} />
             </Link>
-
           </div>
         </div>
       </div>
@@ -39,4 +35,4 @@ const FeatureSection1 = ({ featuresData }) => {
   );
 };
 
-export default FeatureSection1
+export default FeatureSection1;

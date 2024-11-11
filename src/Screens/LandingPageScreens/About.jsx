@@ -20,7 +20,7 @@ const About = () => {
       <FeatureSection1 featuresData={featuresData} />
 
       <div className="mx-48 my-8">
-        <h1 className="text-3xl font-bold text-green-700 mb-8 text-center">
+        <h1 className="text-3xl font-bold text-blue-700 mb-8 text-center">
           FAQ's
         </h1>
 
@@ -28,7 +28,7 @@ const About = () => {
       </div>
 
       <div className="mx-16 my-16">
-        <h1 className="text-3xl font-bold text-green-700 mb-8 text-center">
+        <h1 className="text-3xl font-bold text-blue-700 mb-8 text-center">
           Contact Us
         </h1>
 

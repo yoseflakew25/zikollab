@@ -68,7 +68,6 @@ const Pricing = () => {
     },
   ];
 
-
   const paymentStatus = () => {
     dispatch(getOrganizationTransactions(workspace._id))
       .then((res) => {
@@ -80,7 +79,7 @@ const Pricing = () => {
             tempArray,
             (item) => -new Date(item.date).getTime()
           );
-          if (sortedData[0].status === "pending") return
+          if (sortedData[0].status === "pending") return;
           console.log(sortedData);
           setSubscriptionStatus({
             status: sortedData[0].status,
@@ -94,18 +93,22 @@ const Pricing = () => {
           const diff = moment.duration(
             moment(sortedData[0].endDate).diff(moment(sortedData[0].startDate))
           );
-          setTransactionHistory(tempArray)
-          
+          setTransactionHistory(tempArray);
+
           setSubscriptionItems([
             {
               key: "1",
               label: "Subscription",
-              children: <span className="capitalize">{sortedData[0].subscription}</span>,
+              children: (
+                <span className="capitalize">{sortedData[0].subscription}</span>
+              ),
             },
             {
               key: "2",
               label: "Status",
-              children: <span className="capitalize">{sortedData[0].status}</span>,
+              children: (
+                <span className="capitalize">{sortedData[0].status}</span>
+              ),
             },
             {
               key: "3",
@@ -115,12 +118,16 @@ const Pricing = () => {
             {
               key: "4",
               label: "Order time",
-              children: <span className="capitalize">{sortedData[0].startDate}</span>,
+              children: (
+                <span className="capitalize">{sortedData[0].startDate}</span>
+              ),
             },
             {
               key: "5",
               label: "Expiry Date",
-              children: <span className="capitalize">{sortedData[0].endDate}</span>,
+              children: (
+                <span className="capitalize">{sortedData[0].endDate}</span>
+              ),
             },
             {
               key: "6",
@@ -130,24 +137,23 @@ const Pricing = () => {
             {
               key: "7",
               label: "Current Status",
-              children: (
-                <Badge
-                  status='processing'
-                  text='Running'
-                />
-              ),
+              children: <Badge status="processing" text="Running" />,
               span: 3,
             },
 
             {
               key: "8",
               label: "Order Number",
-              children: (<span className="capitalize">{sortedData[0].tx_ref}</span>),
+              children: (
+                <span className="capitalize">{sortedData[0].tx_ref}</span>
+              ),
             },
             {
               key: "9",
               label: "Amount Paid",
-              children: <span className="capitalize">{sortedData[0].amount}</span>,
+              children: (
+                <span className="capitalize">{sortedData[0].amount}</span>
+              ),
             },
           ]);
         }
@@ -165,45 +171,47 @@ const Pricing = () => {
   return (
     <div>
       {subscriptionStatus === null ? (
-        <div className=''>
+        <div className="">
           <div>
-            <h2 className='text-3xl font-bold tracki text-center mt-12 sm:text-5xl '>
+            <h2 className="text-3xl font-bold tracki text-center mt-12 sm:text-5xl ">
               Subscription
             </h2>
-            <p className='max-w-3xl mx-auto mt-4 text-xl text-center '>
+            <p className="max-w-3xl mx-auto mt-4 text-xl text-center ">
               You are currently on our free plan. You have{" "}
-              <span className='text-green-500 text-3xl'>30</span> days left.
+              <span className="text-blue-500 text-3xl">30</span> days left.
             </p>
           </div>
-          <div className='flex flex-wrap gap-4 items-center justify-center my-8'>
-            <div className='relative p-8 min-w-64 border border-gray-200 rounded-2xl shadow-sm flex flex-col'>
-              <div className='flex-1'>
-                <h3 className='text-xl font-semibold '>Free</h3>
-                <p className='mt-4 flex flex-col items-center '>
-                  <span className='text-5xl font-extrabold tracking-tight'>
+          <div className="flex flex-wrap gap-4 items-center justify-center my-8">
+            <div className="relative p-8 min-w-64 border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold ">Free</h3>
+                <p className="mt-4 flex flex-col items-center ">
+                  <span className="text-5xl font-extrabold tracking-tight">
                     ETB 0
                   </span>
-                  <span className='ml-1 text-xl font-semibold'>/month</span>
+                  <span className="ml-1 text-xl font-semibold">/month</span>
                 </p>
-                <p className='mt-6 '>You just want to discover - valid for 30 days</p>
+                <p className="mt-6 ">
+                  You just want to discover - valid for 30 days
+                </p>
               </div>
-              <a className='bg-green-50 text-green-700 hover:bg-green-100 hover:text-white mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'>
+              <a className="bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-white mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium">
                 Current Plan
               </a>
             </div>
-            <div className='relative p-8 min-w-64  border border-gray-200 rounded-2xl shadow-sm flex flex-col'>
-              <div className='flex-1'>
-                <h3 className='text-xl font-semibold '>Yearly Plan</h3>
-                <p className='absolute top-0 py-1.5 px-4 bg-green-500 text-white rounded-full text-xs font-semibold uppercase tracking-wide  transform -translate-y-1/2'>
+            <div className="relative p-8 min-w-64  border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold ">Yearly Plan</h3>
+                <p className="absolute top-0 py-1.5 px-4 bg-blue-500 text-white rounded-full text-xs font-semibold uppercase tracking-wide  transform -translate-y-1/2">
                   Most popular
                 </p>
-                <p className='mt-4 flex flex-col items-center justify-center '>
-                  <span className='text-5xl font-extrabold tracking-tight'>
+                <p className="mt-4 flex flex-col items-center justify-center ">
+                  <span className="text-5xl font-extrabold tracking-tight">
                     ETB 9,999.99
                   </span>
-                  <span className='ml-1 text-xl font-semibold'>/year</span>
+                  <span className="ml-1 text-xl font-semibold">/year</span>
                 </p>
-                <p className='mt-6 '>
+                <p className="mt-6 ">
                   A license for your school or university - save 25%
                 </p>
               </div>
@@ -217,20 +225,21 @@ const Pricing = () => {
                     endDate: moment().add(365, "days").format(),
                   })
                 }
-                className='bg-green-500 text-white hover:text-white hover:bg-green-600 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'>
+                className="bg-blue-500 text-white hover:text-white hover:bg-blue-600 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium"
+              >
                 {isLoading ? <Spin /> : "Buy Now"}
               </a>
             </div>
-            <div className='relative p-8 min-w-64 border border-gray-200 rounded-2xl shadow-sm flex flex-col'>
-              <div className='flex-1'>
-                <h3 className='text-xl font-semibold '>Monthly Plan</h3>
-                <p className='mt-4 flex flex-col items-center justify-center '>
-                  <span className='text-5xl font-extrabold tracking-tight'>
+            <div className="relative p-8 min-w-64 border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+              <div className="flex-1">
+                <h3 className="text-xl font-semibold ">Monthly Plan</h3>
+                <p className="mt-4 flex flex-col items-center justify-center ">
+                  <span className="text-5xl font-extrabold tracking-tight">
                     ETB 999.99
                   </span>
-                  <span className='ml-1 text-xl font-semibold'>/month</span>
+                  <span className="ml-1 text-xl font-semibold">/month</span>
                 </p>
-                <p className='mt-6 '>A license for your school or university</p>
+                <p className="mt-6 ">A license for your school or university</p>
               </div>
               <a
                 onClick={() =>
@@ -242,7 +251,8 @@ const Pricing = () => {
                     endDate: moment().add(30, "days").format(),
                   })
                 }
-                className='bg-green-50 text-green-700 hover:text-white hover:bg-green-100 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'>
+                className="bg-blue-50 text-blue-700 hover:text-white hover:bg-blue-100 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium"
+              >
                 Buy Now
               </a>
             </div>
@@ -251,8 +261,8 @@ const Pricing = () => {
       ) : (
         <div>
           <Result
-            status='success'
-            title='You have successfully subscribed!'
+            status="success"
+            title="You have successfully subscribed!"
             // subTitle={`Order number: ${
             //   subscriptionStatus.tx_ref
             // } You have subscribed for ${
@@ -279,12 +289,12 @@ const Pricing = () => {
             subscriptionStatus.endDate
           ).format("DD-MM-YYYY")} </span>.`}</p> */}
           <Descriptions
-            title='Subscription Status'
+            title="Subscription Status"
             bordered
             items={subscriptionItems}
-            />
-            <h2 className="text-xl font-semibold my-2">Transaction History</h2>
-            <Table columns={columns} dataSource={transactionHistory} />
+          />
+          <h2 className="text-xl font-semibold my-2">Transaction History</h2>
+          <Table columns={columns} dataSource={transactionHistory} />
         </div>
       )}
     </div>

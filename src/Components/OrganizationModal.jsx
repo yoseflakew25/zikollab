@@ -2,7 +2,10 @@ import { Modal, Select } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { getOrganizations, joinOrganization } from "../Redux/features/dataActions";
+import {
+  getOrganizations,
+  joinOrganization,
+} from "../Redux/features/dataActions";
 import { toast } from "react-toastify";
 import { getMe } from "../Redux/features/authActions";
 
@@ -50,21 +53,20 @@ const OrganizationModal = ({ orgModal, setOrgModal }) => {
   const handleJoinOrganization = () => {
     console.log(selectedValue);
     dispatch(joinOrganization(selectedValue))
-    .then((res) => {
-      if (res.meta.requestStatus === "fulfilled") {
-        setOrgModal(false);
-        setSelectedValue("");
-        toast.success(res.payload.message);
-        dispatch(getMe())
-      } else {
-        toast.error(res.payload.message);
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-      toast.error("There is some error in the server! ");
-    });
-    
+      .then((res) => {
+        if (res.meta.requestStatus === "fulfilled") {
+          setOrgModal(false);
+          setSelectedValue("");
+          toast.success(res.payload.message);
+          dispatch(getMe());
+        } else {
+          toast.error(res.payload.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("There is some error in the server! ");
+      });
   };
 
   const handleCancel = () => {
@@ -74,20 +76,21 @@ const OrganizationModal = ({ orgModal, setOrgModal }) => {
 
   return (
     <Modal
-      title='Join an Organization'
+      title="Join an Organization"
       centered
       open={orgModal}
       onOk={() => {
         handleJoinOrganization();
       }}
-      onCancel={() => handleCancel()}>
+      onCancel={() => handleCancel()}
+    >
       <Select
         showSearch
-        className='w-full'
+        className="w-full"
         value={selectedValue}
         onChange={handleSelectChange}
-        placeholder='Search to Select'
-        optionFilterProp='children'
+        placeholder="Search to Select"
+        optionFilterProp="children"
         filterOption={(input, option) => (option?.label ?? "").includes(input)}
         filterSort={(optionA, optionB) =>
           (optionA?.label ?? "")
@@ -97,12 +100,13 @@ const OrganizationModal = ({ orgModal, setOrgModal }) => {
         options={searchOptions}
       />
 
-      <p className='my-2'>
+      <p className="my-2">
         Didn't find your organization?{" "}
         <Link
-          to='create-organization'
+          to="create-organization"
           onClick={() => setOrgModal(false)}
-          className='text-green-500 hover:underline cursor-pointer'>
+          className="text-blue-500 hover:underline cursor-pointer"
+        >
           Create
         </Link>
       </p>
