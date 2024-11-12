@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import About from "./About";
 
-import featureImg1 from "../../assets/feature2.png";
-import featureImg2 from "../../assets/features3.jpg";
+import featureImg1 from "../../assets/featureImg.png";
+import featureImg2 from "../../assets/featureImg2.png";
 
 const Home = () => {
   const navigate = useNavigate();

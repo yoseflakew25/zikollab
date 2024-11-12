@@ -4,7 +4,7 @@ import { Input, Space } from "antd";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 const { Search } = Input;
-import HeroImg from "../assets/hero.svg";
+import HeroImg from "../assets/hero.png";
 
 const suffix = (
   <AudioOutlined
@@ -55,7 +55,7 @@ const HeroSection = () => {
                 loading="lazy"
                 src={HeroImg}
                 alt="Connecting Ethiopia's Top Talent with the Best Jobs"
-                className="mx-4 aspect-square max-md:mx-2.5"
+                className="mx-4 aspect-square max-md:mx-2.5 py-16"
               />
             </div>
           </div>

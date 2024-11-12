@@ -1,8 +1,7 @@
 import React from "react";
 import FeatureSection1 from "../../Components/FeatureSection1";
 import Faq from "../../Components/Faq";
-import { Card } from "antd";
-import Developers from "../../Components/Developers";
+
 import AboutImage from "../../assets/feature2.png"; // Import the image directly
 
 const featuresData = {

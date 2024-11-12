@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 
 // Resources Imports
-import { Icon } from "@iconify/react";
-import fetena_logo from "../assets/fetena_logo.png";
+
 import Hamburger from "hamburger-react";
 
 const NavBar = ({ displayPage, setDisplayPage }) => {

@@ -1,5 +1,4 @@
 import { Icon } from "@iconify/react";
-import fetena_logo from "../assets/fetena_logo.png";
 
 const Footer = () => {
   return (
