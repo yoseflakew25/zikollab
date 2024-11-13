@@ -2,7 +2,7 @@ import React from "react";
 import FeatureSection1 from "../../Components/FeatureSection1";
 import Faq from "../../Components/Faq";
 
-import AboutImage from "../../assets/feature2.png"; // Import the image directly
+import AboutImage from "../../assets/featureImg.png"; // Import the image directly
 
 const featuresData = {
   title: "About Us",

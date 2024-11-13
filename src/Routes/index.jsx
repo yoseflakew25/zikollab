@@ -11,6 +11,9 @@ import Patients from "../Screens/LandingPageScreens/Patients.jsx";
 import PatientProfile from "../Screens/LandingPageScreens/PatientProfile.jsx";
 import GoalSetting from "../Screens/LandingPageScreens/GoalSetting.jsx";
 import CreateProfile from "../Screens/LandingPageScreens/CreateProfile.jsx";
+import NutritionPlan from "../Screens/LandingPageScreens/NutritionPlan.jsx";
+
+
 const AllRoutes = () => {
 
 
@@ -40,6 +43,13 @@ const AllRoutes = () => {
           path='/patients/:id/goal-setting'
           element={<GoalSetting />}
         />
+
+<Route
+          path='/patients/:id/plan'
+          element={<NutritionPlan />}
+        />
+
+
         <Route
           path='/create-profile'
           element={<CreateProfile />}

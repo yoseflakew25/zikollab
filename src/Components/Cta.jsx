@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import featureImg from "../assets/images.jpg";
+import featureImg from "../assets/features3.jpg";
 
 const Cta = () => {
   return (

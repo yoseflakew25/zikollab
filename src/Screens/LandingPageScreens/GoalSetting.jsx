@@ -169,7 +169,7 @@ const GoalSetting = () => {
         toast.success("Goals saved successfully");
 
         // Navigate back to patient profile
-        navigate(`/patient/${id}`);
+        navigate(`/patients/${id}/plan`);
       }
     } catch (error) {
       console.error("Error saving goals:", error);
