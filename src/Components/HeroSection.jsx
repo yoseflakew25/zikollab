@@ -33,7 +33,7 @@ const HeroSection = () => {
               </p>
               <div className="flex flex-wrap gap-2 items-center justify-center mt-8">
                 <Link
-                  to="/sign-in"
+                  to="/patients"
                   type="button"
                   className="transition duration-300 ease-in-out flex items-center gap-2 bg-transparent hover:bg-blue-900 border text-white border-white font-semibold py-[0.4rem] px-16 rounded-md text-md"
                 >

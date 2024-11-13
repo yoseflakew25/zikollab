@@ -19,7 +19,7 @@ const Cta = () => {
             </h2>
 
             <Link
-              to="/sign-in"
+              to="/patients"
               className="flex items-center justify-center gap-2"
             >
               <Button text="Get Started Today" />

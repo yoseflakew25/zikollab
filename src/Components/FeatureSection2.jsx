@@ -13,7 +13,7 @@ const FeatureSection2 = ({ featuresData }) => {
               {title}
             </h2>
             <p className="my-8 text-gray-600">{description}</p>
-            <Link to="/sign-in" className="flex items-center justify-center">
+            <Link to="/patients" className="flex items-center justify-center">
               <Button text={btnLabel} />
             </Link>
           </div>
