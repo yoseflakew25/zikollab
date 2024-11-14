@@ -10,12 +10,12 @@ const Cta = () => {
         <div className="flex flex-col w-[65%]">
           <div className="flex flex-col gap-1  my-auto font-semibold p-4">
             <h2 className="text-2xl leading-5 text-blue-700 font-bold mb-2 mx-2 ">
-              Ready to Transform Your{" "}
+            Get Started with{" "}
             </h2>
 
             <h2 className="text-2xl leading-5 text-blue-700 font-bold mb-4 mx-2 ">
               {" "}
-              Exam Process?
+              Zikollab
             </h2>
 
             <Link

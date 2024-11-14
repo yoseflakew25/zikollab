@@ -17,7 +17,7 @@ const Footer = () => {
               </p>
               <p>
                 Address:{" "}
-                <span className="font-bold text-gray-500">info@fetena.com</span>
+                <span className="font-bold text-gray-500">info@Zikollab.com</span>
               </p>
             </div>
           </div>

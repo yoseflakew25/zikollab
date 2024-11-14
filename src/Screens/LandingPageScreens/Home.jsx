@@ -18,18 +18,18 @@ const Home = () => {
   const [displayPage, setDisplayPage] = useState("home");
 
   const featuresData = {
-    title: "Why use Fetena",
+    title: "Your Trusted Nutrition Partner for Children's Recovery",
     description:
-      "Fetena.com offers a user-friendly interface that simplifies the exam creation and management process for examiners, making it straightforward and efficient. The platform ensures a fair testing environment with robust security measures, allowing exams to be conducted securely and without concerns about cheating. Grading is made efficient and easy, enabling examiners to grade exams quickly and provide instant results to examinees. Additionally, Fetena.com supports multiple question formats, including multiple-choice, essays, and more, catering to diverse exam needs. Real-time monitoring features keep exams secure by enabling real-time proctoring, ensuring the integrity of the examination process.",
+      "Welcome to Zikollab, the platform dedicated to supporting and monitoring children’s nutritional recovery after hospital discharge. Our mission is to help families and healthcare providers ensure children continue to thrive and stay healthy long after leaving the hospital.",
     btnLink: "/search",
     btnLabel: "Get started",
     imgSrc: featureImg1,
   };
 
   const featuresDataa = {
-    title: "For Examiners",
+    title: "Comprehensive Support for Ongoing Recovery",
     description:
-      "Fetena.com is dedicated to simplifying the exam process for examiners. The platform allows examiners to effortlessly create and manage exams with its intuitive interface. They can monitor examinees in real-time, ensuring the integrity of the exam, and utilize efficient grading tools to provide quick and accurate results. This seamless integration of exam management tools significantly reduces administrative workload and enhances the overall efficiency of conducting exams.",
+      "With Zikollab, you gain access to an innovative tool designed to make tracking a child's nutritional and health progress seamless and efficient. By providing real-time updates and insights, we help bridge the gap between hospital care and at-home recovery.",
     btnLink: "/search",
     btnLabel: "Get started",
     imgSrc: featureImg2,
